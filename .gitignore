@@ -1,0 +1,6 @@
+# Mac OS
+.DS_Store
+
+# Nix
+.direnv/
+.envrc
