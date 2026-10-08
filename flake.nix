@@ -29,6 +29,13 @@
             nodejs_24
             pnpm
           ];
+
+          shellHook = ''
+            echo "ingest-poc dev environment"
+            go version
+            node --version
+            pnpm --version
+          '';
         };
       }
     );
