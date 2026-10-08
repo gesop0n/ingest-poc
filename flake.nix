@@ -19,10 +19,15 @@
         formatter = pkgs.nixfmt-tree;
 
         devShells.default = pkgs.mkShell {
-          packages = [
-            pkgs.go_1_26
-            pkgs.gopls
-            pkgs.golangci-lint
+          packages = with pkgs; [
+            # Backend
+            go_1_26
+            gopls
+            golangci-lint
+
+            # Frontend
+            nodejs_24
+            pnpm
           ];
         };
       }
