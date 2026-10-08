@@ -4,3 +4,6 @@
 # Nix
 .direnv/
 .envrc
+
+# Build
+dist/
