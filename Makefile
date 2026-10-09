@@ -29,9 +29,7 @@ dev-backend:
 dev-frontend:
 	pnpm -C $(FRONTEND_DIR) dev
 
-## dev: backend と frontend の開発サーバを 1 つのターミナルで起動する
-dev:
-	$(MAKE) -j2 --output-sync=line dev-backend dev-frontend
+
 
 ## run: 本番と同じ 1 ポート構成で起動する
 run: build
