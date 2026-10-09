@@ -1,0 +1,13 @@
+.git
+.direnv
+.envrc
+**/.DS_Store
+bin/
+docs/
+
+frontend/node_modules
+frontend/dist
+
+# ローカルでビルドした成果物はイメージに持ち込まない
+backend/internal/web/dist/*
+!backend/internal/web/dist/.gitkeep
