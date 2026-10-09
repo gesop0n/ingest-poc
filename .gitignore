@@ -7,3 +7,9 @@
 
 # Build
 dist/
+bin/
+
+# embed 用ディレクトリは .gitkeep だけ追跡する
+!/backend/internal/web/dist/
+/backend/internal/web/dist/*
+!/backend/internal/web/dist/.gitkeep
