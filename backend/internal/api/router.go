@@ -19,7 +19,9 @@ func NewRouter(frontend fs.FS) *gin.Engine {
 		})
 	}
 
-	RegisterStatic(r, frontend)
+	if frontend != nil {
+		RegisterStatic(r, frontend)
+	}
 
 	return r
 }

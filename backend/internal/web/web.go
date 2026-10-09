@@ -1,4 +1,4 @@
-package frontend
+package web
 
 import (
 	"embed"
@@ -6,7 +6,10 @@ import (
 	"io/fs"
 )
 
-//go:embed dist
+// dist はビルド時に frontend/dist からコピーされる
+// .gitkeep だけの状態でもコンパイルできるよう all: を付ける
+//
+//go:embed all:dist
 var assets embed.FS
 
 func FS() (fs.FS, error) {
@@ -16,7 +19,7 @@ func FS() (fs.FS, error) {
 	}
 
 	if _, err := fs.Stat(frontendFS, "index.html"); err != nil {
-		return nil, fmt.Errorf("frontend index.html: %w", err)
+		return nil, fmt.Errorf("frontend index.html (run `make build`): %w", err)
 	}
 
 	return frontendFS, nil

@@ -37,6 +37,12 @@ func RegisterStatic(r *gin.Engine, frontend fs.FS) {
 			name = "index.html"
 		}
 
+		// all: で埋め込んだ .gitkeep などのドットファイルは配信しない
+		if strings.HasPrefix(path.Base(name), ".") {
+			c.Status(http.StatusNotFound)
+			return
+		}
+
 		// ファイルが存在する場合
 		if info, err := fs.Stat(frontend, name); err == nil && !info.IsDir() {
 			if strings.HasPrefix(name, "assets/") {
